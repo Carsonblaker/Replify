@@ -23,8 +23,8 @@ mongoose
 // Routes
 app.use("/api/replify", replifyRoutes);
 
-app.listen(PORT, () => 
+app.listen(PORT, () => {
 	console.log(
 		`Server Running on http://localhost:${PORT}`
-	)
-	 );
+	);
+	 });
