@@ -20,7 +20,7 @@ function App() {
   // Fetch all workouts
   const fetchWorkouts = async () => {
     try {
-      const res = await fetch(`${API_BASE_URL}/workouts`);
+      const res = await fetch(`${API_BASE_URL}/api/workouts/`);
       const data = await res.json();
       setWorkouts(data);
     } catch (err) {
@@ -43,8 +43,13 @@ function App() {
   // Submit workout
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const payload = {
+      ...form,
+      weight: form.weight === "" ? null : Number(form.weight),
+      reps: form.reps === "" ? null : Number(form.reps),
+    };
     try {
-      const res = await fetch(`${API_BASE_URL}/api/workouts`, {
+      const res = await fetch(`${API_BASE_URL}/api/workouts/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
