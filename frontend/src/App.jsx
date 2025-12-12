@@ -43,16 +43,25 @@ function App() {
   // Submit workout
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const payload = {
-      ...form,
+
+    const exerciseData = {
+      exercise: form.exercise,
+      sets: 1,
       weight: form.weight === "" ? null : Number(form.weight),
-      reps: form.reps === "" ? null : Number(form.reps),
+      reps: form.reps === ""? null : Number(form.reps),
+      notes: form.notes,
     };
+
+    const payload = {
+     name: form.exercise || "New Workout",
+     exercises: [exerciseData],
+    };
+
     try {
       const res = await fetch(`${API_BASE_URL}/api/workouts/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {

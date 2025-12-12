@@ -6,7 +6,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export default function Signup() {
   const [form, setForm] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -37,10 +37,14 @@ export default function Signup() {
         setMessage(data.message || "Signup failed");
         return;
       }
-
+						if (data.token) {
       localStorage.setItem("token", data.token);
       setMessage("Account created! Redirecting...");
-      setTimeout(() => (window.location.href = "/login"), 1200);
+      setTimeout(() => (window.location.href = "/"), 1200);
+						}else {
+							setMessage("SignupFailed: Token Missing from reponse");
+						}
+
     } catch (err) {
       setMessage("Server error");
     }
@@ -53,10 +57,10 @@ export default function Signup() {
 
         <form onSubmit={handleSubmit}>
           <input
-            name="name"
+            name="username"
             className="auth-input"
             placeholder="Name"
-            value={form.name}
+            value={form.username}
             onChange={handleChange}
           />
 

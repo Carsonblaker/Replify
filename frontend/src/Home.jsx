@@ -7,7 +7,7 @@ const Home = ({ form, workouts, handleChange, handleSubmit }) => {
     <div className="home-page">
       <h1>Your Workout Dashboard</h1>
 
-      {/* --- ADDED NAVIGATION LINKS HERE --- */}
+      {/* --- ADDED NAVIGATION LINKS --- */}
       <nav style={{ marginBottom: '20px' }}>
         <p>
           Need to access your profile? 
@@ -38,12 +38,16 @@ const Home = ({ form, workouts, handleChange, handleSubmit }) => {
           <p>No workouts found. Log your first one above!</p>
         ) : (
           <ul>
-            {workouts.map((workout) => (
+            {workouts.map((workout) => {
+													const exercise = workout.exercises[0];
+													if (!exercise) return null; 
+													return (
               <li key={workout._id} className="workout-item">
-                <strong>{workout.exercise}</strong>: {workout.weight} lbs x {workout.reps} reps 
-                {workout.notes && <span> ({workout.notes})</span>}
+                <strong>{exercise.exercise}</strong>: {exercise.weight} lbs x {exercise.reps} reps 
+                {exercise.notes && <span> ({exercise.notes})</span>}
               </li>
-            ))}
+            );
+											})}
           </ul>
         )}
       </section>
