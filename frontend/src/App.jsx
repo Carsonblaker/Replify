@@ -44,6 +44,13 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const token = localStorage.getItem('token');
+
+    if(!token)  {
+      SpeechRecognitionAlternative("PLease Log in to submit a workout")
+      return;
+    }
+
     const exerciseData = {
       exercise: form.exercise,
       sets: 1,
@@ -60,11 +67,19 @@ function App() {
     try {
       const res = await fetch(`${API_BASE_URL}/api/workouts/`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", 
+          "Authorization": `Bearer ${token}`
+        },
+
         body: JSON.stringify(payload),
       });
 
-      if (res.ok) {
+      if (!res.ok) {
+
+        const errorData = await res.json();
+        console.error("failed to add workout:", errorData);
+        alert(`Workout submission failed: ${errorData.error || 'Server rejected request'}`);
+
         setForm({
           exercise: "",
           weight: "",
