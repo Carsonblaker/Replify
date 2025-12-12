@@ -24,13 +24,14 @@ router.get("/", async (req, res) => {
 ------------------------------------------------------ */
 router.post("/", async (req, res) => {
   try {
-    const replify = new Replify({
-      ...req.body,
+    const replify = await Replify.create({
+    name: req.body.name,
+				exercises: req.body.exercises,
     });
-
-    await replify.save();
+				
     res.status(201).json(replify);
   } catch (error) {
+			console.error("Mongoose POST validation Erroe:", error.message);
     res.status(400).json({ error: error.message });
   }
 });
