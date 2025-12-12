@@ -47,7 +47,7 @@ function App() {
     const token = localStorage.getItem('token');
 
     if(!token)  {
-      SpeechRecognitionAlternative("PLease Log in to submit a workout")
+      SpeechRecognitionAlternative("PLease Log in to submit a workout");
       return;
     }
 
@@ -79,6 +79,8 @@ function App() {
         const errorData = await res.json();
         console.error("failed to add workout:", errorData);
         alert(`Workout submission failed: ${errorData.error || 'Server rejected request'}`);
+        return;
+      }
 
         setForm({
           exercise: "",
@@ -87,7 +89,7 @@ function App() {
           notes: ""
         });
         fetchWorkouts();
-      }
+  
     } catch (err) {
       console.error("Error submitting workout", err);
     }
