@@ -10,21 +10,21 @@ router.post("/signup", async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    // 1. Make sure all fields exist
+
     if (!username || !email || !password) {
       return res.status(400).json({ error: "All fields are required." });
     }
 
-    // 2. Check if user already exists
+
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ error: "Email is already registered." });
     }
 
-    // 3. Hash password
+    //  Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // 4. Create new user
+    //  Create new user
     const newUser = new User({
       username,
       email,
@@ -33,7 +33,7 @@ router.post("/signup", async (req, res) => {
 
     await newUser.save();
 
-    // 5. Create JWT token
+    //  Create JWT token
     const token = jwt.sign(
       { userId: newUser._id },
       process.env.JWT_SECRET,
@@ -60,24 +60,24 @@ router.post("/login", async (req, res) => {
 	try {
 			const { email, password } = req.body;
 
-			// 1. Check for missing fields
+
 			if (!email || !password) {
 					return res.status(400).json({ error: "Email and password are required." });
 			}
 
-			// 2. Find user by email
+			// Find user by email
 			const user = await User.findOne({ email });
 			if (!user) {
 					return res.status(400).json({ error: "Invalid email or password." });
 			}
 
-			// 3. Compare password
+			// Compare password
 			const isMatch = await bcrypt.compare(password, user.password);
 			if (!isMatch) {
 					return res.status(400).json({ error: "Invalid email or password." });
 			}
 
-			// 4. Create JWT token
+			//Create JWT token
 			const token = jwt.sign(
 					{ userId: user._id },
 					process.env.JWT_SECRET,
