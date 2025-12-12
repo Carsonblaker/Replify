@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
+
+const API_URL = "http://localhost:3000/api/replify";
+const API = import.meta.env.VITE_API_URL;
 
 function App() {
   //Replify code here
@@ -12,7 +13,7 @@ function App() {
     reps: "",
     notes: ""
   });
-  const API = import.meta.env.VITE_API_URL;
+
   
   const fetchWorkouts = async () => {
     try {
@@ -59,7 +60,7 @@ function App() {
   return (
     //Replify app UI goes here
     <div style={{ padding: "2rem", fontFamily: "Arial" }}>
-    <h1>Replify — Workout Logger</h1>
+    <h1>REPLIFY</h1>
 
     {/* FORM */}
     <form onSubmit={handleSubmit} style={{ marginBottom: "2rem" }}>
@@ -81,12 +82,12 @@ function App() {
         value={form.reps}
         onChange={handleChange}
       />
-      <input
-        name="notes"
-        placeholder="Notes"
-        value={form.notes}
-        onChange={handleChange}
-      />
+     <label className="journal-label"></label>
+<textarea
+  placeholder="Reflect on how you felt today"
+  value={form.notes}
+  onChange={(e) => setForm({ ...form, notes: e.target.value })}
+/>
 
       <button type="submit">Add Workout</button>
     </form>

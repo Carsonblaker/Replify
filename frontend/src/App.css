@@ -1,42 +1,138 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  margin: 0;
+  background: #0d0f14;
+  font-family: Inter, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+/* App container */
+.app {
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+}
+
+/* Header */
+.header {
   text-align: center;
+  margin-bottom: 25px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.header h1 {
+  font-size: 2.4rem;
+  letter-spacing: 1px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header p {
+  opacity: 0.7;
+  margin-top: -10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
+/* Glassy Card modules */
 .card {
-  padding: 2em;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 20px;
+  border-radius: 18px;
+  margin-bottom: 25px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-.read-the-docs {
-  color: #888;
+/* Inputs */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  font-size: 1rem;
+}
+
+textarea {
+  height: 80px;
+  resize: none;
+}
+
+/* Row layout */
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+/* Add button */
+button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  background: #4e9cff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #357ae8;
+}
+
+/* Workout list items */
+.workout-card {
+  padding: 15px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  margin-top: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+
+.notes {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+.empty {
+  opacity: 0.6;
+  text-align: center;
+  margin-top: 10px;
+}
+.journal-label {
+  margin-top: 12px;
+  display: block;
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+/* Larger, more journaling-friendly text area */
+textarea {
+  height: 140px; /* was 80px */
+  padding: 14px;
+  line-height: 1.5;
+  font-size: 1rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Show journal entries cleaner in history feed */
+.notes {
+  margin-top: 10px;
+  white-space: pre-wrap; /* allows real paragraph formatting */
+  line-height: 1.5;
+  opacity: 0.9;
+  font-size: 0.95rem;
+  font-style: italic;
 }
