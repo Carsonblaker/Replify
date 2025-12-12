@@ -1,5 +1,21 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./auth/Login";
+import Signup from "./auth/Signup";
+import Home from "./Home"; // your workout page
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
 const API_URL = "http://localhost:3000/api/replify";
 const API = import.meta.env.VITE_API_URL;
