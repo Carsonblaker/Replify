@@ -13,6 +13,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/api/health", (req, res) => {
+	res.status(200).send("OK");
+});
+
 // ROUTES
 app.use("/api/auth", authRoutes);
 app.use("/api/workouts", workoutRoutes);
@@ -25,5 +29,5 @@ mongoose
   .catch((err) => console.log("MongoDB connection error:", err));
 
 app.listen(PORT, () => console.log(`Server Running on http://localhost:${PORT}`
-	
+
 ));
