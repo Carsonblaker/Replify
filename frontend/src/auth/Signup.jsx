@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../auth.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export default function Signup() {
   const [form, setForm] = useState({
     name: "",
@@ -10,7 +12,6 @@ export default function Signup() {
   });
 
   const [message, setMessage] = useState("");
-  const API = import.meta.env.VITE_API_URL;
 
   const handleChange = (e) => {
     setForm({
@@ -24,7 +25,7 @@ export default function Signup() {
     setMessage("");
 
     try {
-      const res = await fetch(`${API}/auth/signup`, {
+      const res = await fetch(`${API_BASE_URL}/api/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -84,8 +85,7 @@ export default function Signup() {
         {message && <p className="auth-message">{message}</p>}
 
         <p className="auth-link">
-          Already have an account?{" "}
-          <Link to="/login">Log in</Link>
+          Already have an account? <Link to="/login">Log in</Link>
         </p>
       </div>
     </div>

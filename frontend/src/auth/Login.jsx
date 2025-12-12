@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../auth.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export default function Login() {
   const [form, setForm] = useState({
     email: "",
@@ -9,7 +11,6 @@ export default function Login() {
   });
 
   const [message, setMessage] = useState("");
-  const API = import.meta.env.VITE_API_URL;
 
   const handleChange = (e) => {
     setForm({
@@ -23,7 +24,7 @@ export default function Login() {
     setMessage("");
 
     try {
-      const res = await fetch(`${API}/auth/login`, {
+      const res = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -37,6 +38,7 @@ export default function Login() {
       }
 
       localStorage.setItem("token", data.token);
+
       setMessage("Logged in! Loading your workouts...");
       setTimeout(() => (window.location.href = "/"), 1200);
     } catch (err) {
@@ -75,8 +77,7 @@ export default function Login() {
         {message && <p className="auth-message">{message}</p>}
 
         <p className="auth-link">
-          Need an account?{" "}
-          <Link to="/signup">Create one</Link>
+          Need an account? <Link to="/signup">Create one</Link>
         </p>
       </div>
     </div>
