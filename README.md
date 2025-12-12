@@ -16,42 +16,48 @@ Backend (API Base URL)
 Test these in an incognito window before submission.
 
 ✨ Features
-List 3–6 key features, ideally with short bullets:
-
-Create, read, update, and delete [core resource name]
+Log Exercise, weights, reps, journal Notes
 Responsive UI with reusable components
+Frontend uses (WorkoutCard, AuthForm, )
 Backend API with full CRUD operations
+POST to create a workout
+GET to read workouts
+DELETE deletes a workout
+PATCH To UPDDATE a workout
 Data persisted in MongoDB
 Advanced feature: describe yours clearly
-Error handling on client + server
-Advanced Feature
-Describe which advanced feature you implemented and 1–2 sentences about how it works:
+My advanced feature is a simple authentication Login and Password with dashes with the password. It is to make sure your logs and journals are private to the user only and no one else. 
 
 📸 Screenshots
 Include 2–4 screenshots of your app. Use relative paths (e.g., /screenshots/home.png) or full URLs.
-
+![screenshot](home.png)
+![screenshot1](Login.png)
+![screenshot2](Signup.png)
 🏗️ Project Architecture
 Describe how the pieces fit together.
 
 /frontend
   /src
-    /components
-    /pages
-    App.jsx
-    main.jsx
+    /App.css
+				/App.jsx
+				/auth.css
+				/index.css
+				/main.jsx
+				App.css is the home css file to connect to app.jsx. auth.css and index.css are the css for the signup andlogin page
 
 /backend
   /models
+		/middleware
   /routes
   server.js
-Include a sentence explaining the flow:
+Include a sentence explaining the flow: The flow of the backend is models to middleware to connect the authentication to the routes and then server
 
-The React frontend communicates with the Express backend through API routes. The backend interacts with MongoDB using Mongoose models, and environment variables are used to store secrets.
+The React frontend commincates with the Express backend through the API routes. The Backend interacts with MONGO using Mongoose models, and enviorment variables are used to store secerets.
 
 📦 Installation & Setup
 1. Clone the project
-git clone https://github.com/your-username/your-project.git
-cd your-project
+git clone https://github.com/Carsonblaker/Replify
+cd Replify
 2. Environment Variables
 Include a .env.example file in both repos.
 
@@ -63,7 +69,7 @@ JWT_SECRET=your_secret_if_using_auth
 API_KEY=if_using_external_apis
 Frontend .env.example:
 
-VITE_API_URL=https://your-backend-url.com
+VITE_API_URL=https://replify-4qkc.onrender.com
 3. Install Dependencies
 Frontend:
 cd frontend
@@ -79,31 +85,22 @@ Start frontend on http://localhost:5173
 Confirm CORS + API requests are working
 🛠 API Documentation
 Document the main 3–5 routes:
+GET /api/auth
 
-GET /api/resource
-Returns all resources.
+POST/auth
 
-POST /api/resource
-Creates a new resource. Body example:
+PATCH/auth/:id
 
-{
-  "name": "Example",
-  "description": "Text here"
-}
-PATCH /api/resource/:id
-Updates a resource.
+DELETE/auth/:is
 
-DELETE /api/resource/:id
-Deletes a resource.
-
-Add additional routes if needed (auth, file uploads, WebSockets, etc.).
+auth.js
 
 🚀 Deployment Notes
 Document where/how you deployed:
 
 Frontend
 Vercel / Netlify
-Explain build command if different (npm run build)
+
 Backend
 Render / Railway
 Note environment variable setup

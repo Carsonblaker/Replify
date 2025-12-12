@@ -31,7 +31,7 @@ app.get("/api", (req, res) => {
 
 // ROUTES
 app.use("/api/auth", authRoutes);
-app.use("/api/workouts", workoutRoutes);
+app.use("/workouts", workoutRoutes);
 
 const PORT = process.env.PORT || 3000;
 
@@ -39,6 +39,10 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log("MongoDB connection error:", err));
+
+app.use((req, res, next) => {
+	res.status(404).send("API Endpoint Not Found");
+});
 
 app.listen(PORT, () => console.log(`Server Running on http://localhost:${PORT}`
 

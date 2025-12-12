@@ -8,7 +8,7 @@ const router = express.Router();
    GET /api/workouts
    Gets all workouts for the logged-in user
 ------------------------------------------------------ */
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const workouts = await Replify.find({ userId: req.user.userId })
       .sort({ createdAt: -1 });
@@ -22,7 +22,7 @@ router.get("/", auth, async (req, res) => {
    POST /api/workouts
    Creates a new workout tied to the logged-in user
 ------------------------------------------------------ */
-router.post("/", auth, async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const replify = new Replify({
       ...req.body,

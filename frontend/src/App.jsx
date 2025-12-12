@@ -20,7 +20,7 @@ function App() {
   // Fetch all workouts
   const fetchWorkouts = async () => {
     try {
-      const res = await fetch(`${API_BASE_URL}/api/workouts`);
+      const res = await fetch(`${API_BASE_URL}/workouts`);
       const data = await res.json();
       setWorkouts(data);
     } catch (err) {
