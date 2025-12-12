@@ -12,7 +12,6 @@ const app = express();
 
 app.use(
 	cors({
-		// Replace the placeholders with your actual frontend URLs
 		origin: ['http://localhost:5173', 'https://replify-4qkc.onrender.com'],
 		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 		credentials: true,

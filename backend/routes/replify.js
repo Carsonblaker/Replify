@@ -10,7 +10,7 @@ const router = express.Router();
 ------------------------------------------------------ */
 router.get("/", async (req, res) => {
   try {
-    const workouts = await Replify.find({ userId: req.user.userId })
+    const workouts = await Replify.find({})
       .sort({ createdAt: -1 });
     res.json(workouts);
   } catch (error) {
@@ -26,7 +26,6 @@ router.post("/", async (req, res) => {
   try {
     const replify = new Replify({
       ...req.body,
-      userId: req.user.userId
     });
 
     await replify.save();
