@@ -1,10 +1,21 @@
 // src/Home.jsx
 import React from 'react';
+import { Link } from "react-router-dom"; // 👈 ADD THIS IMPORT
 
 const Home = ({ form, workouts, handleChange, handleSubmit }) => {
   return (
     <div className="home-page">
       <h1>Your Workout Dashboard</h1>
+
+      {/* --- ADDED NAVIGATION LINKS HERE --- */}
+      <nav style={{ marginBottom: '20px' }}>
+        <p>
+          Need to access your profile? 
+          <Link to="/login" style={{ marginLeft: '10px' }}>Log In</Link> | 
+          <Link to="/signup" style={{ marginLeft: '10px' }}>Sign Up</Link>
+        </p>
+      </nav>
+      {/* ----------------------------------- */}
 
       {/* 1. NEW WORKOUT FORM */}
       <form className="workout-form" onSubmit={handleSubmit}>
