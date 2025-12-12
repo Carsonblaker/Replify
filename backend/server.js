@@ -10,11 +10,23 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(
+	cors({
+		// Replace the placeholders with your actual frontend URLs
+		origin: ['http://localhost:5173', 'https://replify-4qkc.onrender.com'],
+		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+		credentials: true,
+})
+);
+
 app.use(express.json());
 
+//API
 app.get("/api/health", (req, res) => {
 	res.status(200).send("OK");
+});
+app.get("/api", (req, res) => {
+	res.send("Replify API is running");
 });
 
 // ROUTES
