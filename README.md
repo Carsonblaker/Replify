@@ -12,7 +12,7 @@ Example: A full stack development app that helps eveyrday students or athletes t
 🌐 Live Demo
 Type	Link
 Frontend (Deployed Site)	https://jolly-peony-3810a7.netlify.app/
-Backend (API Base URL)	
+Backend (API Base URL)	https://replify-4qkc.onrender.com/api/workouts
 Test these in an incognito window before submission.
 
 ✨ Features
@@ -102,7 +102,7 @@ Frontend
 Vercel / Netlify
 
 Backend
-Render / Railway
+Render 
 Note environment variable setup
 🎥 Video Walkthrough
 Link to Loom/YouTube: https://your-video-link.com
@@ -117,24 +117,23 @@ Include quick timestamps if you want extra professionalism:
 (This section is required for grading.)
 
 1. What was the hardest part of this project?
-Write 3–5 sentences.
+The hardest part of this project was connection of front and backend moslty the backend. I had so many problems with Render and it not finding the API end point or not being able to connect to Mongo becasue it didnt have access to the IP because it wasent on the white list. But the dumbest thing is that finding the how to change the ORIGIN_URL i didnt know i had to make a new eniorment module
 
 2. What are you most proud of?
-Could be a feature, a UI improvement, debugging work, or personal growth.
+I am most proud of that i was able to create this and that my summer project is finally made and complete. I did backend and frontend connection I didnt think I could figure it out. 
 
 3. What would you do differently next time?
-Think in terms of planning, scoping, or tech choices.
+I defentialy need to think about time and to not cram it in within a week I need to give myself more time to program so im not getting it done within the last 24hours of the deadline. 
 
 4. How did you incorporate feedback from the 12/5 check-in gallery?
-Be explicit (this is graded):
-
-“Based on feedback, I reduced scope by removing X and focused on stabilizing Y.” “I reorganized my components for readability after feedback about structure.”
+Well because i had nothing but the prgramming done and none of the Vite done that day I didnt get much feedback except oh thats cool idea and such. But seeing others projects gave me confidence that I could complete this project and not jsut turn in a failed project
 
 Acknowledgments / AI Usage Disclosure
 Include a brief note on tools used (per academic integrity guidelines):
 
 Examples:
 
-“Used ChatGPT to help troubleshoot a CORS issue.”
-“Used Claude for help writing documentation.”
-“Used VSCode Copilot for autocomplete suggestions.”
+"Used Gemini to debug the probelms of Render with API endpoint not Found"
+"Used Cahtgpt to help debug Render not connecting to Mongo and muliplte other errors with Render"
+"Used ChatGPT to help create diffrent css for each page to see which color pallete i like most"
+Used ChatGPT and Gemini to check for any minor bugs or misplaced indentation or symbols or () or semicolns.
