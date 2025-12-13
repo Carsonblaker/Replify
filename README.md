@@ -137,3 +137,4 @@ Examples:
 "Used Cahtgpt to help debug Render not connecting to Mongo and muliplte other errors with Render"
 "Used ChatGPT to help create diffrent css for each page to see which color pallete i like most"
 Used ChatGPT and Gemini to check for any minor bugs or misplaced indentation or symbols or () or semicolns.
+"Used Gemini to help debug Netlify"
