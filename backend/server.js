@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
 	cors({
-		origin: ['http://localhost:5173', 'https://replify-4qkc.onrender.com'],
+		origin: ['http://localhost:5173', 'https://replify-8xky.onrender.com'],
 		methods: 'GET,PATCH,POST,DELETE',
 		credentials: true,
 })
