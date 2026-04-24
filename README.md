@@ -30,9 +30,7 @@ My advanced feature is a simple authentication Login and Password with dashes wi
 
 📸 Screenshots
 Include 2–4 screenshots of your app. Use relative paths (e.g., /screenshots/home.png) or full URLs.
-![screenshot](home.png)
-![screenshot1](Login.png)
-![screenshot2](Signup.png)
+
 🏗️ Project Architecture
 Describe how the pieces fit together.
 
@@ -69,7 +67,7 @@ JWT_SECRET=your_secret_if_using_auth
 API_KEY=if_using_external_apis
 Frontend .env.example:
 
-VITE_API_URL=https://replify-4qkc.onrender.com
+VITE_API_URL=
 3. Install Dependencies
 Frontend:
 cd frontend
@@ -107,14 +105,6 @@ Note environment variable setup
 🎥 Video Walkthrough
 Link to Loom/YouTube: https://your-video-link.com
 
-Include quick timestamps if you want extra professionalism:
-
-0:00–0:30 Overview
-0:30–1:30 Core features demo
-1:30–2:30 Advanced feature
-2:30–3:00 Technical challenge solved
-🧠 Reflection
-(This section is required for grading.)
 
 1. What was the hardest part of this project?
 The hardest part of this project was connection of front and backend moslty the backend. I had so many problems with Render and it not finding the API end point or not being able to connect to Mongo becasue it didnt have access to the IP because it wasent on the white list. But the dumbest thing is that finding the how to change the ORIGIN_URL i didnt know i had to make a new eniorment module
