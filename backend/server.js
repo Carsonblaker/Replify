@@ -36,12 +36,7 @@ app.get("/api", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/workouts", workoutRoutes);
 
-app.get("/api/debug", (req, res) => {
-  res.json({
-    jwtExists: !!process.env.JWT_SECRET,
-    mongoExists: !!process.env.MONGO_URI
-  });
-});
+
 
 const PORT = process.env.PORT || 3000;
 
