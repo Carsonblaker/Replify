@@ -46,3 +46,10 @@ app.use((req, res, next) => {
 app.listen(PORT, () => console.log(`Server Running on http://localhost:${PORT}`
 
 ));
+
+app.get("/api/debug", (req, res) => {
+  res.json({
+    jwtExists: !!process.env.JWT_SECRET,
+    mongoExists: !!process.env.MONGO_URI
+  });
+});
