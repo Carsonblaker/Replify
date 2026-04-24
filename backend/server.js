@@ -32,6 +32,8 @@ app.get("/api", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/workouts", workoutRoutes);
 
+
+
 const PORT = process.env.PORT || 3000;
 
 mongoose
