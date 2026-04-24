@@ -22,7 +22,7 @@ function App() {
     try {
       const res = await fetch(`${API_BASE_URL}/api/workouts/`);
       const data = await res.json();
-      setWorkouts(data);
+      setWorkouts(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error("Failed to load workouts:", err);
     }

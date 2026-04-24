@@ -5,21 +5,20 @@ import { Link } from "react-router-dom"; // 👈 ADD THIS IMPORT
 const Home = ({ form, workouts, handleChange, handleSubmit }) => {
   return (
     <div className="home-page">
-      <h1>Your Workout Dashboard</h1>
-
+      <h1>Replify</h1>
       {/* --- ADDED NAVIGATION LINKS --- */}
       <nav style={{ marginBottom: '20px' }}>
         <p>
-          Need to access your profile? 
+          Need Access To Your profile? 
           <Link to="/login" style={{ marginLeft: '10px' }}>Log In</Link> | 
-          <Link to="/signup" style={{ marginLeft: '10px' }}>Sign Up</Link>
+          <Link to="/signup" style={{ marginLeft: '5px' }}>Sign Up</Link>
         </p>
       </nav>
       {/* ----------------------------------- */}
 
       {/* 1. NEW WORKOUT FORM */}
       <form className="workout-form" onSubmit={handleSubmit}>
-        <h2>Log New Workout</h2>
+        <h2>New Workout</h2>
         {/* Input fields using props */}
         <input type="text" name="exercise" value={form.exercise} onChange={handleChange} placeholder="Exercise" required />
         <input type="number" name="weight" value={form.weight} onChange={handleChange} placeholder="Weight" />
