@@ -11,11 +11,15 @@ dotenv.config();
 const app = express();
 
 app.use(
-	cors({
-		origin: ['http://localhost:5173', 'https://replify-8xky.onrender.com'],
-		methods: 'GET,PATCH,POST,DELETE',
-		credentials: true,
-})
+  cors({
+    origin: [
+      'http://localhost:5173',
+      'https://replify-8xky.onrender.com',
+      'https://jolly-peony-3810a7.netlify.app'
+    ],
+    methods: 'GET,PATCH,POST,DELETE',
+    credentials: true,
+  })
 );
 
 app.use(express.json());
