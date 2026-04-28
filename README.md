@@ -12,8 +12,8 @@ Example: A full stack development app that helps eveyrday students or athletes t
 🌐 Live Demo
 Type	Link
 Frontend (Deployed Site)	https://jolly-peony-3810a7.netlify.app/
-Backend (API Base URL)	https://replify-4qkc.onrender.com/api/workouts
-Test these in an incognito window before submission.
+Backend (API Base URL)	https://replify-8xky.onrender.com
+
 
 ✨ Features
 Log Exercise, weights, reps, journal Notes
